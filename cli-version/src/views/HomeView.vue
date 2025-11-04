@@ -15,6 +15,7 @@
 				:addToShoppingCart="addToShoppingCart"
 				:name="item.name"
 				:image="item.image"
+				:price="item.price"
 				:quantity="item.quantity"
 				:inStock="item.inStock"
 				:key="item.name"
@@ -22,7 +23,7 @@
 		</section>
 
 		<aside class="shopping-cart">
-			<h2>Panier d'achat : {{ shoppingCart }} articles</h2>
+			<h2>Panier : {{ shoppingCart }} articles</h2>
 		</aside>
 
 		<footer class="footer">
@@ -32,7 +33,7 @@
 </template>
 
 <script>
-import MenuItem from "../components/MenuItem.vue"
+import MenuItem from "../components/MenuItem"
 
 export default {
 	name: "HomeView",
@@ -51,7 +52,8 @@ export default {
 						alt: "Un croissant"
 					},
 					inStock: true,
-					quantity: 1
+					quantity: 1,
+					price: 2.99
 				},
 				{
 					name: "Baguette de pain",
@@ -60,7 +62,8 @@ export default {
 						alt: "Quatre baguettes de pain"
 					},
 					inStock: true,
-					quantity: 1
+					quantity: 1,
+					price: 3.99
 				},
 				{
 					name: "Éclair",
@@ -69,7 +72,8 @@ export default {
 						alt: "Éclair au chocolat"
 					},
 					inStock: false,
-					quantity: 1
+					quantity: 1,
+					price: 4.99
 				}
 			]
 		}
