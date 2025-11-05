@@ -1,8 +1,32 @@
 <script>
 export default {
     name: "MenuItem",
-    props: ["addToShoppingCart", "image", "inStock", "name", "price", "quantity"],
-    data() {
+props: {
+		addToShoppingCart: {
+			type: Function,
+			required: true
+		},
+		image: {
+			type: Object,
+			required: true
+		},
+		inStock: {
+			type: Boolean,
+			required: true
+		},
+		name: {
+			type: String,
+			required: true
+		},
+		price: {
+			type: Number,
+			required: true
+		},
+		quantity: {
+			type: Number,
+			defaut: 1
+		}
+	},    data() {
         return {
             localQuantity: this.quantity,
             onSale : false,
