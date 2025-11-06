@@ -2,10 +2,6 @@
 export default {
     name: "MenuItem",
 props: {
-		addToShoppingCart: {
-			type: Function,
-			required: true
-		},
 		image: {
 			type: Object,
 			required: true
@@ -46,6 +42,11 @@ props: {
 			}
 		}
 	},
+    methods: {
+        updateShoopingCart() {
+            this.$emit("add-items-to-cart", this.quantity)
+    },
+},
     beforeMount() {
 		const today = new Date().getDate()
 
@@ -67,7 +68,7 @@ props: {
             <div>
                 <label :for="'add-item-quantity-' + name">Quantité : {{ localQuantity }}</label>
                 <input v-model.number="localQuantity" :id="'add-item-quantity-' + name" type="number" />
-                <button @click="addToShoppingCart(Number(localQuantity))">
+                <button @click="updateShoopingCart(Number(localQuantity))">
                     Ajouter au panier
                 </button>
             </div>
