@@ -67,7 +67,10 @@ props: {
         <img class="menu-item__image" :src="image.source" :alt="image.alt" />
         <div>
             <h3>{{ name }}</h3>
-            <p>Prix : {{ generatedPrice }}</p>
+            <p>
+				Prix : {{ generatedPrice }}
+				<span v-if="onSale">(10% de réduction !)</span>
+			</p>
             <p v-if="inStock">En stock</p>
             <p v-else>En rupture de stock</p>
             <div>
