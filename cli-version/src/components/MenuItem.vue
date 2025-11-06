@@ -1,9 +1,11 @@
 <script>
 import BaseButton from "./BaseButton.vue";
-import BaseButton from "./BaseButton.vue"
 
 export default {
     name: "MenuItem",
+    components: {
+    BaseButton
+  },
 props: {
 		image: {
 			type: Object,
