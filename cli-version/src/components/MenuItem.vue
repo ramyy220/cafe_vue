@@ -1,4 +1,7 @@
 <script>
+import BaseButton from "./BaseButton.vue";
+import BaseButton from "./BaseButton.vue"
+
 export default {
     name: "MenuItem",
 props: {
@@ -68,9 +71,9 @@ props: {
             <div>
                 <label :for="'add-item-quantity-' + name">Quantité : {{ localQuantity }}</label>
                 <input v-model.number="localQuantity" :id="'add-item-quantity-' + name" type="number" />
-                <button @click="updateShoopingCart(Number(localQuantity))">
+                <BaseButton @click="updateShoopingCart(Number(localQuantity))">
                     Ajouter au panier
-                </button>
+                </BaseButton>
             </div>
         </div>
     </div>
