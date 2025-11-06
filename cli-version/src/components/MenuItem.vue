@@ -1,8 +1,33 @@
 <script>
+import BaseButton from "./BaseButton.vue";
+
 export default {
     name: "MenuItem",
-    props: ["addToShoppingCart", "image", "inStock", "name", "price", "quantity"],
-    data() {
+    components: {
+    BaseButton
+  },
+props: {
+		image: {
+			type: Object,
+			required: true
+		},
+		inStock: {
+			type: Boolean,
+			required: true
+		},
+		name: {
+			type: String,
+			required: true
+		},
+		price: {
+			type: Number,
+			required: true
+		},
+		quantity: {
+			type: Number,
+			defaut: 1
+		}
+	},    data() {
         return {
             localQuantity: this.quantity,
             onSale : false,
@@ -22,6 +47,11 @@ export default {
 			}
 		}
 	},
+    methods: {
+        updateShoopingCart() {
+            this.$emit("add-items-to-cart", this.quantity)
+    },
+},
     beforeMount() {
 		const today = new Date().getDate()
 
@@ -43,12 +73,23 @@ export default {
             <div>
                 <label :for="'add-item-quantity-' + name">Quantité : {{ localQuantity }}</label>
                 <input v-model.number="localQuantity" :id="'add-item-quantity-' + name" type="number" />
-                <button @click="addToShoppingCart(Number(localQuantity))">
+                <BaseButton @click="updateShoopingCart(Number(localQuantity))">
                     Ajouter au panier
-                </button>
+                </BaseButton>
             </div>
         </div>
     </div>
 </template>
 
-<style></style>
+<style lang="scss">
+.menu-item {
+	display: flex;
+	width: 500px;
+	justify-content: space-between;
+	margin-bottom: 30px;
+
+	&__image {
+		max-width: 300px;
+	}
+}
+</style>

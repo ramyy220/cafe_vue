@@ -12,7 +12,7 @@
 			<h2>Menu</h2>
 			<menu-item
 				v-for="item in simpleMenu"
-				:addToShoppingCart="addToShoppingCart"
+        @add-items-to-cart="addToShoppingCart"
 				:name="item.name"
 				:image="item.image"
 				:price="item.price"
@@ -92,3 +92,28 @@ export default {
 	}
 }
 </script>
+<style lang="scss">
+.description {
+	max-width: 960px;
+	font-size: 1.2rem;
+	margin: 0 auto;
+}
+
+.footer {
+	font-style: italic;
+	text-align: center;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.shopping-cart {
+	position: absolute;
+	right: 30px;
+	top: 0;
+}
+</style>
